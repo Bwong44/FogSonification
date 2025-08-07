@@ -278,16 +278,17 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  %(prog)s data_cleaned.csv                           # Default: 120 BPM, 300s
-  %(prog)s data_cleaned.csv --bpm 80 --duration 240  # Custom BPM and duration  
-  %(prog)s data_cleaned.csv --auto-duration          # Auto-calculate duration
-  %(prog)s data_cleaned.csv -o my_song.mid           # Custom output filename
-  %(prog)s data_cleaned.csv -v                       # Verbose output
+  %(prog)s -i data_cleaned.csv                           # Default: 120 BPM, 300s
+  %(prog)s -i data_cleaned.csv --bpm 80 --duration 240  # Custom BPM and duration  
+  %(prog)s -i data_cleaned.csv --auto-duration          # Auto-calculate duration
+  %(prog)s -i data_cleaned.csv -o my_song.mid           # Custom output filename
+  %(prog)s -i data_cleaned.csv -v                       # Verbose output
         """
     )
     
     # Required argument
-    parser.add_argument('csv_file', help='Cleaned CSV file to convert')
+    parser.add_argument('-i', '--input', dest='csv_file', required=True,
+                       help='Cleaned CSV file to convert')
     
     # Optional arguments
     parser.add_argument('-o', '--output', dest='output_file',
@@ -326,20 +327,20 @@ Examples:
             verbose=args.verbose
         )
         
-        print(f"\n✅ MIDI conversion complete!")
-        print(f"🎵 Output file: {output_path}")
+        print(f"\nMIDI conversion complete!")
+        print(f"Output file: {output_path}")
         
         # Show file size
         file_size = os.path.getsize(output_path)
-        print(f"📁 File size: {file_size:,} bytes")
+        print(f"File size: {file_size:,} bytes")
         
         # Show visualization file
         viz_file = output_path.replace('.mid', '_visualization.png')
         if os.path.exists(viz_file):
-            print(f"📊 Visualization: {viz_file}")
+            print(f"Visualization: {viz_file}")
         
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":
