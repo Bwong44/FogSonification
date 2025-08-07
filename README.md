@@ -1,5 +1,5 @@
 datasets using https://open-meteo.com/
 
-scripts specifcally use csv datasets from open-meteo using low cloud coverage, sunrise, and sunset
+scripts specifcally uses csv datasets from open-meteo using low cloud coverage, sunrise, and sunset, outputs 3 channel midi element for cloud coverage, hours as a sine graph, and sunrise/sunset, played in ableton.
 
 for future use, implement function to call data using open-meteo's api
