@@ -19,7 +19,7 @@ python csv_cleanup.py -i weather_data.csv --use-solar -v
 python cleaned_to_midi_3ch_events.py -i weather_data_cleaned.csv --auto-duration -v
 ```
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [CSV Cleanup Script](#csv-cleanup-script)
 - [MIDI Generation Script](#midi-generation-script)  
