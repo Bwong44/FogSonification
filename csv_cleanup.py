@@ -496,20 +496,20 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  %(prog)s data.csv                                    # Basic cleanup with realistic solar timing
-  %(prog)s data.csv -o clean_data.csv                 # Specify output file
-  %(prog)s data.csv --skip-lines 5                    # Skip 5 header lines
-  %(prog)s data.csv --day-start 7 --day-end 19        # Day cycle 7:00-19:00
-  %(prog)s data.csv --no-realistic-timing             # Use simple solar model
-  %(prog)s data.csv --use-solar                       # Use CSV solar data if available
-  %(prog)s data.csv --tolerance 15                    # 15-minute window for sunrise/sunset events
-  %(prog)s data.csv -v                                # Verbose output
-  %(prog)s data.csv --skip-lines 0                    # Don't skip any lines
+  %(prog)s -i data.csv                                    # Basic cleanup with realistic solar timing
+  %(prog)s -i data.csv -o clean_data.csv                 # Specify output file
+  %(prog)s -i data.csv --skip-lines 5                    # Skip 5 header lines
+  %(prog)s -i data.csv --day-start 7 --day-end 19        # Day cycle 7:00-19:00
+  %(prog)s -i data.csv --no-realistic-timing             # Use simple solar model
+  %(prog)s -i data.csv --use-solar                       # Use CSV solar data if available
+  %(prog)s -i data.csv --tolerance 15                    # 15-minute window for sunrise/sunset events
+  %(prog)s -i data.csv -v                                # Verbose output
+  %(prog)s -i data.csv --skip-lines 0                    # Don't skip any lines
         """
     )
     
     # Required argument
-    parser.add_argument('input_file', 
+    parser.add_argument('-i', '--input', dest='input_file', required=True,
                        help='Input CSV file to clean up')
     
     # Optional arguments
@@ -591,12 +591,12 @@ Examples:
             verbose=args.verbose
         )
         
-        print(f"\n✅ Cleanup complete!")
-        print(f"📁 Output file: {output_path}")
+        print(f"\nCleanup complete!")
+        print(f"Output file: {output_path}")
         
         # Show summary
         df_result = pd.read_csv(output_path)
-        print(f"📊 Summary:")
+        print(f"Summary:")
         print(f"   - Total rows: {len(df_result)}")
         print(f"   - Columns: {len(df_result.columns)}")
         print(f"   - Date range: {df_result['date'].min()} to {df_result['date'].max()}")
@@ -607,7 +607,7 @@ Examples:
         print(f"   - Night cycle: {night_count} points ({night_count/len(df_result)*100:.1f}%)")
         
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":
