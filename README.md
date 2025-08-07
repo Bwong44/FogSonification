@@ -155,7 +155,7 @@ python cleaned_to_midi_3ch_events.py -i data_cleaned.csv --auto-duration -v
 
 The pipeline generates 3-channel MIDI files with distinct musical characteristics:
 
-### 🎼 Channel Mapping
+### Channel Mapping
 1. **Channel 1 - Cloud Coverage** 
    - Scale: Major pentatonic (C, D, E, G, A)
    - Data: Inverted cloud coverage percentage
@@ -171,7 +171,7 @@ The pipeline generates 3-channel MIDI files with distinct musical characteristic
    - Data: Sunrise/sunset event detection
    - Character: Dramatic punctuation
 
-### 📊 Output Files
+### Output Files
 - **MIDI file**: Multi-channel composition
 - **Visualization**: PNG graph of all data channels
 - **Console output**: Processing statistics and file info
@@ -180,7 +180,7 @@ The pipeline generates 3-channel MIDI files with distinct musical characteristic
 
 ## Tips & Best Practices
 
-### 💡 Recommended Settings
+### Recommended Settings
 
 **For weather data with solar information:**
 ```bash
@@ -204,7 +204,7 @@ python csv_cleanup.py -i data.csv --tolerance 15
 - Use appropriate tolerance: 15-30min for precision, 30-60min for broader detection
 - For previews, use fixed duration (60-300 seconds)
 
-### 🎯 Data Requirements
+### Data Requirements
 
 - **CSV format** with datetime and numeric columns
 - **Solar data** (optional): Enhances realism with actual sunrise/sunset times
@@ -227,7 +227,7 @@ python csv_cleanup.py -i data.csv --tolerance 15
 
 ---
 
-## 📊 Data Sources
+## Data Sources
 
 ### Weather Data Credits
 This project uses weather data provided by **[Open-Meteo](https://open-meteo.com/)**, a free weather API offering:
@@ -247,35 +247,35 @@ We thank the Open-Meteo team for providing accessible, high-quality weather data
 
 ---
 
-## 🔮 Future Work
+## Future Work
 
 ### Planned Enhancements
 
-#### 🌐 API Integration
+#### API Integration
 - **Open-Meteo API integration** for real-time data fetching
 - **Location-based processing** using coordinates
 - **Automated data updates** for continuous sonification
 - **Multiple weather parameters** (temperature, humidity, wind)
 
-#### 🎵 Musical Improvements
+#### Musical Improvements
 - **Additional scales** and musical modes
 - **Dynamic tempo changes** based on weather conditions
 - **Polyphonic voice leading** for more complex compositions
 - **Weather-specific instruments** (thunder sounds, wind effects)
 
-#### 🔧 Technical Features
+#### Technical Features
 - **Real-time streaming** MIDI generation
 - **Web interface** for parameter adjustment
 - **Batch processing** improvements
 - **Docker containerization** for easy deployment
 
-#### 📊 Data Processing
+#### Data Processing
 - **Multi-location sonification** (weather from multiple cities)
 - **Seasonal pattern analysis** and musical representation
 - **Weather prediction sonification** using forecast data
 - **Climate change visualization** through long-term musical trends
 
-#### 🎛️ User Experience
+#### User Experience
 - **GUI application** for non-technical users
 - **Web-based parameter tuning** interface
 - **Audio playback** integration (not just MIDI export)
